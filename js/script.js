@@ -65,8 +65,7 @@ const createCalendar = () => {
     for (let i = 0; i < calendarDays; i++) {
         const calendarDoor = document.createElement("div");
         calendarDoor.classList.add("door");
-        calendarDoor.style.gridArea = "door" + (i + 1);
-        calendarContainer.appendChild(calendarDoor);
+        calendarContainer.appendChild(calendarDoor); // Append to container
         
         const doorNumber = document.createElement("div");
         doorNumber.classList.add("text");
