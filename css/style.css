@@ -1,90 +1,14 @@
-*{
-	box-sizing: border-box;
+.opened {
+    background-color: #f8e5d1;
+    color: #333;
 }
 
-.btn-start {
-    background-color: orange;
-    color: white;
-    border: 2px solid black;
-    border-radius: 15px;
-}
-body {
-	background-color: #f3060617;
+.discount-label {
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-#site-main {
-	
-}
-
-
-.container {
-  width: 800px;
-    height: 900px;
-    border: 5px solid black;
-    margin: 15px auto;
-    background-image:url("https://img.freepik.com/free-psd/christmas-tree-illustration_23-2150894975.jpg?t=st=1726857383~exp=1726860983~hmac=853460c3f4a57005ba9d2d597d374fe04f76edac8d1330b5bef553ee6f4477f8&w=826");
-    background-size: cover;
-    box-shadow: 6px 6px 20px gray;
-    display: grid;
-    grid-template-columns: repeat(4, 25%);
-    grid-template-rows: repeat(6, 1fr);
-    grid-template-areas: 
-        "door1 door2 door3 door4"
-        "door5 door6 door7 door8"
-        "door9 door10 door11 door12"
-        "door13 door14 door15 door16"
-        "door17 door18 door19 door20"
-        "door21 door22 door23 door24";
-}
-
-.image {
-    background-image: none;
-    background-size: cover;
-    background-postition: center;
-    grid-area: door1;
-}
-
-.text {
-    height: 100%;
-    width: 100%;
-    color: rgb(116, 111, 111);
-    padding: 10px;
-    border: 2px solid black;
-
-}
-
-/*.calendar-door {
-	width: 100px;
-	height: 100px;
-	border: 1px solid black;
-	text-align: center;
-	line-height: 100px;
-	float: left;
-	margin: 10px;
-	background-color: white;
-	background-size: contain;
-}*/
-
-.door-number {
-	margin: 0;
-}
-
-
-#container {
-	width: 600px;
-    margin: 50px auto;
-   
-
-#calendar-header {
-	width: 600px;
-	margin: 50px auto;
-	background-color: white;
-	color: orange;
-	text-align: center;
-	padding: 5px;
-}
-#calendar-body {
-	width: 600px;
-	background-color: #DC7D1D;
-	overflow: auto;
+.discount-code {
+    font-family: monospace;
+    color: #c00;
 }
