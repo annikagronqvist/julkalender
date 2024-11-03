@@ -1,4 +1,5 @@
-{"christmasSpecials":[
+{
+  "christmasSpecials":[
   { "label":"Läppärit -20%", "code":"ASDJKL9023" },
   { "label":"Ilmainen toimitus", "code":"VNKJDO0987" },
   { "label":"Muistikortit ja muistitikut puoleen hintaan", "code":"IOSDFJ872" },
@@ -9,4 +10,5 @@
   { "label":"1Tb SSD 49€", "code":"Doe" },
   { "label":"Intel tuotteet -22%", "code":"Doe" },
   { "label":"AMD 6600XT 249€", "code":"Doe" }  
-]}
+]
+}
