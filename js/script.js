@@ -1,3 +1,6 @@
+const calendarContainer = document.querySelector(".container");
+const calendarDays = 24;
+
 // Array of discount codes with labels
 const discountCodes = [
     { label: "Läppärit -20%", code: "ASDJKL9023" },
@@ -9,7 +12,24 @@ const discountCodes = [
     { label: "Verkkotuotteet -40%", code: "DOE" },
     { label: "1Tb SSD 49€", code: "DOE" },
     { label: "Intel tuotteet -22%", code: "DOE" },
-    { label: "AMD 6600XT 249€", code: "DOE" }
+    { label: "AMD 6600XT 249€", code: "DOE" },
+    { label: "Bluetooth-kaiutin -15%", code: "SPEAKER15" },
+    { label: "Langattomat kuulokkeet -25%", code: "HEADPHONES25" },
+    { label: "Pelikonsoli -20%", code: "GAMER20" },
+    { label: "Verkkokamera -10%", code: "WEBCAM10" },
+    { label: "Teollisuustyökalut -30%", code: "TOOLS30" },
+    { label: "Ladattavat paristot -50%", code: "BATTERIES50" },
+    { label: "Räätälöidyt lahjakortit", code: "GIFT10" },
+    { label: "Matkapuhelimet -15%", code: "PHONE15" },
+    { label: "Kodinkoneet -20%", code: "APPLIANCES20" },
+    { label: "Ruokakaupan lahjakortti", code: "GROCERY50" },
+    { label: "Pehmeät lelut -10%", code: "TOYS10" },
+    { label: "Verkkopelitarvikkeet -15%", code: "GAMING15" },
+    { label: "Ulkoiluvarusteet -25%", code: "OUTDOORS25" },
+    { label: "Kodinsisustus -20%", code: "DECOR20" },
+    { label: "Terveys- ja kauneustuotteet -10%", code: "BEAUTY10" },
+    { label: "Lasten vaatteet -15%", code: "KIDS15" },
+    { label: "Aikuisille -30%", code: "ADULT30" }
 ];
 
 // Function to open a door
