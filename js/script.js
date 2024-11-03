@@ -1,21 +1,19 @@
 const calendarContainer = document.querySelector(".container");
 const calendarDays = 24;
-let discountCodes = [];
 
-// Function to load discount codes from the JSON file
-const loadDiscountCodes = async () => {
-    try {
-        const response = await fetch('./assets/tarjoukset.json'); // Ensure this path is correct
-        if (!response.ok) throw new Error('Network response was not ok');
-        const data = await response.json();
-        discountCodes = data.christmasSpecials; // Store the codes from the JSON file
-        console.log("Discount codes loaded:", discountCodes);
-        createCalendar(); // Create the calendar after loading discount codes
-    } catch (error) {
-        console.error("Error loading discount codes:", error);
-        createCalendar(); // Create calendar without discount codes on error
-    }
-};
+// Directly define your discount codes here
+const discountCodes = [
+    { code: "CODE1" },
+    { code: "CODE2" },
+    { code: "CODE3" },
+    { code: "CODE4" },
+    { code: "CODE5" },
+    { code: "CODE6" },
+    { code: "CODE7" },
+    { code: "CODE8" },
+    { code: "CODE9" },
+    { code: "CODE10" }
+];
 
 // Function to open a door
 const openDoor = (path, event, doorDay) => {
@@ -64,7 +62,7 @@ const createCalendar = () => {
     for (let i = 0; i < calendarDays; i++) {
         const calendarDoor = document.createElement("div");
         calendarDoor.classList.add("door");
-        calendarDoor.style.gridArea = `door${i + 1}`; // Ensure this corresponds to your grid
+        calendarDoor.style.gridArea = `door${i + 1}`;
         calendarContainer.appendChild(calendarDoor);
         
         const doorNumber = document.createElement("div");
@@ -72,10 +70,10 @@ const createCalendar = () => {
         doorNumber.innerHTML = i + 1;
         calendarDoor.appendChild(doorNumber);
         
-        let coursePath = `https://example.com/path/to/your/image.jpg`; // Make sure this URL is valid
+        const coursePath = `https://annikagronqvist.free.nf/Uppg3/img/bild-1.jpg`; // Ensure this is a valid HTTPS URL
         calendarDoor.addEventListener("click", openDoor.bind(null, coursePath, null, i + 1));
     }
 };
 
-// Initialize calendar on page load and load discount codes
-window.onload = loadDiscountCodes;
+// Initialize calendar on page load
+window.onload = createCalendar; // Directly call createCalendar as there’s no JSON to load
