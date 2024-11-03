@@ -9,6 +9,7 @@ const loadDiscountCodes = async () => {
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
         discountCodes = data.christmasSpecials; // Store the codes from the JSON file
+        console.log("Discount codes loaded:", discountCodes); // Debug log
         createCalendar(); // Create the calendar after loading discount codes
     } catch (error) {
         console.error("Error loading discount codes:", error);
@@ -49,12 +50,13 @@ const openDoor = (path, event, doorDay) => {
     const discountCode = document.createElement("div");
     discountCode.innerText = getDiscountCode(doorDay); // Get the discount code for this door
     discountCode.classList.add("discount-code");
-    discountCode.style.display = "block"; // Make the discount code visible
+    discountCode.style.display = "block"; // Show the discount code
     event.target.appendChild(discountCode); // Add the discount code to the door
 };
 
 // Function to retrieve discount code based on door number
 const getDiscountCode = (doorNumber) => {
+    console.log("Retrieving discount code for door:", doorNumber); // Debug log
     return discountCodes[doorNumber - 1]?.code || "No code available";
 };
 
@@ -72,7 +74,7 @@ const createCalendar = () => {
         calendarDoor.appendChild(doorNumber);
         
         let coursePath = `http://annikagronqvist.free.nf/Uppg3/img/bild-1.jpg`;
-        calendarDoor.addEventListener("click", (event) => openDoor(coursePath, event, i + 1)); // Bind the event
+        calendarDoor.addEventListener("click", openDoor.bind(null, coursePath, null, i + 1));
     }
 };
 
