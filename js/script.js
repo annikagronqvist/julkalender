@@ -9,24 +9,26 @@ const discountCodes = [
     { label: "Geforce näytönohjaimet -30%", code: "KLHJ8976" },
     { label: "Samsung 55'' televisio 399€", code: "SDFJKL9080" },
     { label: "Robottipölynimuri 129€", code: "PQWO23894" },
-    { label: "Verkkotuotteet -40%", code: "DOE" },
-    { label: "1Tb SSD 49€", code: "DOE" },
-    { label: "Intel tuotteet -22%", code: "DOE" },
-    { label: "AMD 6600XT 249€", code: "DOE" },
+    { label: "Verkkotuotteet -40%", code: "Doe" },
+    { label: "1Tb SSD 49€", code: "Doe" },
+    { label: "Intel tuotteet -22%", code: "Doe" },
+    { label: "AMD 6600XT 249€", code: "Doe" },
     { label: "Bluetooth-kaiutin - 15%", code: "SPEAKER!%" },
-    { label: "Vakuutus -10%", code: "INSURE10" },
-    { label: "Lautaset -50%", code: "PLATE50" },
-    { label: "Kuulokkeet -20%", code: "HEADPHONES20" },
-    { label: "Hiiri -15%", code: "MOUSE15" },
-    { label: "Käytetyt pelit -30%", code: "GAMES30" },
-    { label: "Kamerat -25%", code: "CAMERA25" },
-    { label: "Matkapuhelimet -10%", code: "PHONE10" },
-    { label: "Tarvikkeet -40%", code: "ACCESSORIES40" },
-    { label: "Älykellot -20%", code: "SMARTWATCH20" },
-    { label: "Käytetyt laitteet -15%", code: "USED15" },
-    { label: "Pehmeät lelulelut -50%", code: "SOFTTOY50" },
-    { label: "Pelaajat -30%", code: "PLAYERS30" },
-    { label: "Tietokoneet -20%", code: "PC20" },
+    { label: "Gaming näppäimistö - 25%", code: "KEYBOARD25" },
+    { label: "Älypuhelin 199€", code: "SMARTPHONE199" },
+    { label: "Pelituoli - 30%", code: "CHAIR30" },
+    { label: "Konsoli 399€", code: "CONSOLE399" },
+    { label: "Kiintolevy - 50%", code: "HDD50" },
+    { label: "Televisio - 15%", code: "TV15" },
+    { label: "Kamera - 20%", code: "CAMERA20" },
+    { label: "Tabletti - 10%", code: "TABLET10" },
+    { label: "Langattomat kuulokkeet - 20%", code: "HEADPHONES20" },
+    { label: "Reppu - 15%", code: "BAG15" },
+    { label: "Muistikortti - 30%", code: "SDCARD30" },
+    { label: "Kaapelit - 40%", code: "CABLES40" },
+    { label: "Äänijärjestelmä - 25%", code: "SOUND25" },
+    { label: "Pöytäkone - 20%", code: "DESKTOP20" },
+    { label: "Pelit - 50%", code: "GAMES50" },
 ];
 
 // Function to open a door
@@ -43,9 +45,9 @@ const openDoor = (event, doorDay) => {
     // Check if we are in development mode
     const isDevMode = false; // Set this to false for the final version
 
-    // Only alert in production mode
+    // Alert the user if trying to open before December or before the specific door day
     if (!isDevMode) {
-        if (monthnow !== 11) {
+        if (monthnow !== 11) { // Months are 0-indexed (0 = January, 11 = December)
             alert("This feature opens in December."); 
             return; 
         }
@@ -66,11 +68,7 @@ const openDoor = (event, doorDay) => {
 
 // Function to retrieve discount code based on door number
 const getDiscountCode = (doorNumber) => {
-    const discount = discountCodes[doorNumber - 1]; // Adjusting to 0-based index
-    if (discount) {
-        return `${discount.label} - Code: ${discount.code}`; // Format the output consistently
-    }
-    return "No code available";
+    return discountCodes[doorNumber - 1]?.code || "No code available";
 };
 
 // Function to create the calendar doors
@@ -82,24 +80,10 @@ const createCalendar = () => {
         
         const doorNumber = document.createElement("div");
         doorNumber.classList.add("text");
-        doorNumber.innerHTML = i + 1; // Door number starts at 1
+        doorNumber.innerHTML = i + 1;
         calendarDoor.appendChild(doorNumber);
         
         calendarDoor.addEventListener("click", (event) => openDoor(event, i + 1));
-    }
-
-    // Shuffle the doors after creating them
-    shuffleDoors();
-};
-
-// Function to shuffle the doors in the DOM
-const shuffleDoors = () => {
-    const doors = Array.from(calendarContainer.children);
-    // Fisher-Yates shuffle
-    for (let i = doors.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        // Swap the doors
-        calendarContainer.appendChild(doors[j]); // Move the shuffled door to the end
     }
 };
 
