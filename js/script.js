@@ -13,15 +13,11 @@ const loadDiscountCodes = async () => {
         createCalendar(); // Create the calendar after loading discount codes
     } catch (error) {
         console.error("Error loading discount codes:", error);
-        // Optionally, you can still create the calendar even if the JSON fails to load
-        createCalendar(); // Comment this line if you want to skip creating the calendar on error
     }
 };
 
 // Function to open a door
 const openDoor = (path, event, doorDay) => {
-    if (!event) return; // Early return if event is null
-
     let today = new Date();
     let daynow = today.getDate();
     let monthnow = today.getMonth();
@@ -32,7 +28,7 @@ const openDoor = (path, event, doorDay) => {
     }
 
     // Check if we are in development mode
-    const isDevMode = true; // Set this to false for the final version
+    const isDevMode = false; // Set this to false for the final version
 
     // Alert the user if trying to open before December or before the specific door day
     if (!isDevMode) {
@@ -76,7 +72,7 @@ const createCalendar = () => {
         calendarDoor.appendChild(doorNumber);
         
         // Change the image URL to HTTPS
-       let coursePath = `https://annikagronqvist.free.nf/Uppg3/img/bild-1.jpg`;
+        let coursePath = `https://annikagronqvist.free.nf/Uppg3/img/bild-1.jpg`;
         calendarDoor.addEventListener("click", openDoor.bind(null, coursePath, null, i + 1));
     }
 };
