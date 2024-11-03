@@ -46,7 +46,14 @@ const openDoor = (event, doorDay) => {
     
     // Create a new div for the discount code
     const discountCode = document.createElement("div");
-    discountCode.innerText = getDiscountCode(doorDay); // Get the discount code for this door
+    
+    // Get the discount code for this door
+    const code = getDiscountCode(doorDay);
+    
+    // Log the doorDay and corresponding code for debugging
+    console.log(`Door: ${doorDay}, Code: ${code}`);
+
+    discountCode.innerText = code; // Set the discount code text
     discountCode.classList.add("discount-code");
     event.target.appendChild(discountCode); // Add the discount code to the door
     
@@ -56,6 +63,7 @@ const openDoor = (event, doorDay) => {
 
 // Function to retrieve discount code based on door number
 const getDiscountCode = (doorNumber) => {
+    // Return the discount code or a default message if none is available
     return discountCodes[doorNumber - 1]?.code || "No code available"; // Adjusted to match door number with index
 };
 
