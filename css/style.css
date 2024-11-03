@@ -1,46 +1,89 @@
 * {
-    box-sizing: border-box;
+
+box-sizing: border-box;
+
 }
+
 
 body {
-    background-color: #f3060617; /* Light background for body */
+
+background-color: #f3060617; /* Light background for body */
+
 }
+
 
 .container {
-    width: 800px;
-    height: 900px;
-    border: 5px solid black;
-    margin: 15px auto;
-    background-image: url("https://img.freepik.com/free-psd/christmas-tree-illustration_23-2150894975.jpg?t=st=1726857383~exp=1726860983~hmac=853460c3f4a57005ba9d2d597d374fe04f76edac8d1330b5bef553ee6f4477f8&w=826");
-    background-size: cover;
-    box-shadow: 6px 6px 20px gray;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    grid-gap: 5px; /* Optional: space between doors */
+
+width: 800px;
+
+height: 900px;
+
+border: 5px solid black;
+
+margin: 15px auto;
+
+background-image: url("https://img.freepik.com/free-psd/christmas-tree-illustration_23-2150894975.jpg?t=st=1726857383~exp=1726860983~hmac=853460c3f4a57005ba9d2d597d374fe04f76edac8d1330b5bef553ee6f4477f8&w=826");
+
+background-size: cover;
+
+box-shadow: 6px 6px 20px gray;
+
+display: grid;
+
+grid-template-columns: repeat(4, 1fr);
+
+grid-template-rows: repeat(6, 1fr);
+
+grid-gap: 5px; /* Optional: space between doors */
+
 }
+
 
 .door {
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent to see the background */
-    border: 2px solid black;
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent to see the background */
+
+border: 2px solid black;
+
+position: relative;
+
+cursor: pointer;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
 }
+
 
 .text {
-    font-size: 2em;
-    color: #000; /* Text color */
+
+font-size: 2em;
+
+color: #000; /* Text color */
+
 }
 
+
 .discount-code {
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-    background-color: rgba(255, 255, 0, 0.8);
-    padding: 5px;
-    border-radius: 5px;
-    display: none; /* Initially hidden */
+
+position: absolute;
+
+bottom: 5px;
+
+left: 5px;
+
+background-color: rgba(255, 255, 0, 0.8);
+
+padding: 5px;
+
+border-radius: 5px;
+
+display: none; /* Initially hidden */
+
 }
+
+Kohteesta <https://github.com/annikagronqvist/julkalender/blob/main/css/style.css> 
+
