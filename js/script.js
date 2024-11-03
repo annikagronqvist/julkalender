@@ -31,6 +31,14 @@ const discountCodes = [
     { label: "Pelit - 50%", code: "GAMES50" },
 ];
 
+// Function to shuffle the doors
+const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+};
+
 // Function to open a door
 const openDoor = (event, doorDay) => {
     let today = new Date();
@@ -43,7 +51,7 @@ const openDoor = (event, doorDay) => {
     }
 
     // Check if we are in development mode
-    const isDevMode = true; // Set this to false for the final version
+    const isDevMode = false; // Set this to false for the final version
 
     // Alert the user if trying to open before December or before the specific door day
     if (!isDevMode) {
@@ -80,18 +88,28 @@ const getDiscountInfo = (doorNumber) => {
 
 // Function to create the calendar doors
 const createCalendar = () => {
+    const doors = []; // Array to hold the door elements
+
     for (let i = 0; i < calendarDays; i++) {
         const calendarDoor = document.createElement("div");
         calendarDoor.classList.add("door");
-        calendarContainer.appendChild(calendarDoor);
         
         const doorNumber = document.createElement("div");
         doorNumber.classList.add("text");
         doorNumber.innerHTML = i + 1;
         calendarDoor.appendChild(doorNumber);
         
+        // Add event listener for opening the door
         calendarDoor.addEventListener("click", (event) => openDoor(event, i + 1));
+        
+        doors.push(calendarDoor); // Add door to the array
     }
+
+    // Shuffle the doors
+    shuffleArray(doors);
+
+    // Append the shuffled doors to the calendar container
+    doors.forEach(door => calendarContainer.appendChild(door));
 };
 
 // Initialize calendar on page load
