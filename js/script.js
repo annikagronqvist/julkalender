@@ -13,6 +13,8 @@ const loadDiscountCodes = async () => {
         createCalendar(); // Create the calendar after loading discount codes
     } catch (error) {
         console.error("Error loading discount codes:", error);
+        // Optionally, you can still create the calendar even if the JSON fails to load
+        createCalendar(); // Comment this line if you want to skip creating the calendar on error
     }
 };
 
