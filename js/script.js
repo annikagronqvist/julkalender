@@ -56,11 +56,11 @@ const openDoor = (event, doorDay) => {
     // Alert the user if trying to open before December or before the specific door day
     if (!isDevMode) {
         if (monthnow !== 11) { // Months are 0-indexed (0 = January, 11 = December)
-            alert("This feature opens in December."); 
+            alert("Den här luckan kan du öppna först i december."); 
             return; 
         }
         if (daynow < doorDay) {
-            alert(`You cannot open door ${doorDay} until December ${doorDay}.`);
+            alert(`Du kan inte öppna den här luckan ${doorDay} innanl December ${doorDay}.`);
             return;
         }
     }
