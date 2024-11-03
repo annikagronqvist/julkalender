@@ -16,7 +16,7 @@ const discountCodes = [
 ];
 
 // Function to open a door
-const openDoor = (path, event, doorDay) => {
+const openDoor = (event, doorDay) => {
     let today = new Date();
     let daynow = today.getDate();
     let monthnow = today.getMonth();
@@ -26,7 +26,7 @@ const openDoor = (path, event, doorDay) => {
         return; // Prevent opening again if already opened
     }
 
-    // Development mode flag
+    // Check if we are in development mode
     const isDevMode = true; // Set this to false for the final version
 
     // Only alert in production mode
@@ -36,20 +36,18 @@ const openDoor = (path, event, doorDay) => {
             return; 
         }
         if (daynow < doorDay) {
-            alert(`This door cannot be opened until December ${doorDay}.`);
+            alert(`You cannot open door ${doorDay} until December ${doorDay}.`);
             return;
         }
     }
     
-    // Open the door and show the image
-    event.target.style.backgroundImage = `url(${path})`;
+    // Open the door and show the discount code
     event.target.classList.add("opened"); // Mark the door as opened
-    
-    // Show discount code when the door is opened
     const discountCode = document.createElement("div");
     discountCode.innerText = getDiscountCode(doorDay); // Get the discount code for this door
     discountCode.classList.add("discount-code");
     event.target.appendChild(discountCode); // Add the discount code to the door
+    discountCode.style.display = "block"; // Show the discount code
 };
 
 // Function to retrieve discount code based on door number
@@ -62,7 +60,6 @@ const createCalendar = () => {
     for (let i = 0; i < calendarDays; i++) {
         const calendarDoor = document.createElement("div");
         calendarDoor.classList.add("door");
-        calendarDoor.style.gridArea = "door" + (i + 1);
         calendarContainer.appendChild(calendarDoor);
         
         const doorNumber = document.createElement("div");
@@ -70,8 +67,7 @@ const createCalendar = () => {
         doorNumber.innerHTML = i + 1;
         calendarDoor.appendChild(doorNumber);
         
-        let coursePath = `http://annikagronqvist.free.nf/Uppg3/img/bild-1.jpg`;
-        calendarDoor.addEventListener("click", (event) => openDoor(coursePath, event, i + 1)); // Pass the event
+        calendarDoor.addEventListener("click", (event) => openDoor(event, i + 1));
     }
 };
 
