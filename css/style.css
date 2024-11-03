@@ -40,7 +40,12 @@ body {
     bottom: 5px;
     left: 5px;
     background-color: #add8e6; /* Light ice blue */
-    padding: 5px;
-    border-radius: 5px;
+    color: #000; /* Text color for better contrast */
+    padding: 10px; /* Increased padding for more space */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    border: 2px solid #007BFF; /* Border to define the code area */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    font-size: 1.2em; /* Increased font size */
+    font-weight: bold; /* Make the text bold */
     display: none; /* Initially hidden */
 }
