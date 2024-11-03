@@ -21,14 +21,15 @@ const openDoor = (path, event, doorDay) => {
     let daynow = today.getDate();
     let monthnow = today.getMonth();
     
-    // Check if the door should be opened
+    // Check if the door has already been opened
     if (event.target.classList.contains("opened")) {
         return; // Prevent opening again if already opened
     }
 
-    // Check if we are in development mode
+    // Development mode flag
     const isDevMode = true; // Set this to false for the final version
 
+    // Only alert in production mode
     if (!isDevMode) {
         if (monthnow !== 11) {
             alert("This feature opens in December."); 
@@ -70,7 +71,7 @@ const createCalendar = () => {
         calendarDoor.appendChild(doorNumber);
         
         let coursePath = `http://annikagronqvist.free.nf/Uppg3/img/bild-1.jpg`;
-        calendarDoor.addEventListener("click", openDoor.bind(null, coursePath, null, i + 1));
+        calendarDoor.addEventListener("click", (event) => openDoor(coursePath, event, i + 1)); // Pass the event
     }
 };
 
