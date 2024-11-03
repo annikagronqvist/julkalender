@@ -41,7 +41,7 @@ const openDoor = (event, doorDay) => {
     }
 
     // Check if we are in development mode
-    const isDevMode = true; // Set this to false for the final version
+    const isDevMode = false; // Set this to false for the final version
 
     // Only alert in production mode
     if (!isDevMode) {
