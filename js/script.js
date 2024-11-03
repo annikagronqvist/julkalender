@@ -67,15 +67,17 @@ const createCalendar = () => {
     for (let i = 0; i < calendarDays; i++) {
         const calendarDoor = document.createElement("div");
         calendarDoor.classList.add("door");
-        calendarContainer.appendChild(calendarDoor); // Append to container
+        calendarDoor.style.gridArea = "door" + (i + 1);
+        calendarContainer.appendChild(calendarDoor);
         
         const doorNumber = document.createElement("div");
         doorNumber.classList.add("text");
         doorNumber.innerHTML = i + 1;
         calendarDoor.appendChild(doorNumber);
         
-        let coursePath = `http://annikagronqvist.free.nf/Uppg3/img/bild-1.jpg`;
-        calendarDoor.addEventListener("click", (event) => openDoor(coursePath, event, i + 1)); // Pass the event object correctly
+        // Change the image URL to HTTPS
+        let coursePath = `https://annikagronqvist.free.nf/Uppg3/img/bild-1.jpg`;
+        calendarDoor.addEventListener("click", openDoor.bind(null, coursePath, null, i + 1));
     }
 };
 
