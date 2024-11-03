@@ -20,7 +20,7 @@ const openDoor = (event, doorDay) => {
     let today = new Date();
     let daynow = today.getDate();
     let monthnow = today.getMonth();
-
+    
     // Check if the door has already been opened
     if (event.target.classList.contains("opened")) {
         return; // Prevent opening again if already opened
@@ -40,7 +40,7 @@ const openDoor = (event, doorDay) => {
             return;
         }
     }
-
+    
     // Open the door and show the discount code
     event.target.classList.add("opened"); // Mark the door as opened
     const discountCode = document.createElement("div");
