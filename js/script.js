@@ -1,7 +1,7 @@
 const calendarContainer = document.querySelector(".container");
 const calendarDays = 24;
 
-// Array of discount codes
+// Array of discount codes with labels
 const discountCodes = [
     { label: "Läppärit -20%", code: "ASDJKL9023" },
     { label: "Ilmainen toimitus", code: "VNKJDO0987" },
@@ -47,13 +47,13 @@ const openDoor = (event, doorDay) => {
     // Create a new div for the discount code
     const discountCode = document.createElement("div");
     
-    // Get the discount code for this door
-    const code = getDiscountCode(doorDay);
+    // Get the discount label and code for this door
+    const discountInfo = getDiscountCode(doorDay);
     
-    // Log the doorDay and corresponding code for debugging
-    console.log(`Door: ${doorDay}, Code: ${code}`);
+    // Log the doorDay and corresponding discount information for debugging
+    console.log(`Door: ${doorDay}, Discount Info: ${discountInfo}`);
 
-    discountCode.innerText = code; // Set the discount code text
+    discountCode.innerText = discountInfo; // Set the discount info text
     discountCode.classList.add("discount-code");
     event.target.appendChild(discountCode); // Add the discount code to the door
     
@@ -61,10 +61,14 @@ const openDoor = (event, doorDay) => {
     discountCode.style.display = "block"; // Show the discount code
 };
 
-// Function to retrieve discount code based on door number
+// Function to retrieve discount info based on door number
 const getDiscountCode = (doorNumber) => {
-    // Return the discount code or a default message if none is available
-    return discountCodes[doorNumber - 1]?.code || "No code available"; // Adjusted to match door number with index
+    // Return the label and code if available
+    const discount = discountCodes[doorNumber - 1];
+    if (discount) {
+        return `${discount.label}: ${discount.code}`; // Format the output
+    }
+    return "No code available"; // For doors beyond available codes
 };
 
 // Function to create the calendar doors
