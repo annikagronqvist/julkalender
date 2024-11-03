@@ -1,7 +1,7 @@
 const calendarContainer = document.querySelector(".container");
 const calendarDays = 24;
 
-// Array of discount codes
+// Array of discount codes with labels and codes
 const discountCodes = [
     { label: "Läppärit -20%", code: "ASDJKL9023" },
     { label: "Ilmainen toimitus", code: "VNKJDO0987" },
@@ -9,10 +9,10 @@ const discountCodes = [
     { label: "Geforce näytönohjaimet -30%", code: "KLHJ8976" },
     { label: "Samsung 55'' televisio 399€", code: "SDFJKL9080" },
     { label: "Robottipölynimuri 129€", code: "PQWO23894" },
-    { label: "Verkkotuotteet -40%", code: "Doe" },
-    { label: "1Tb SSD 49€", code: "Doe" },
-    { label: "Intel tuotteet -22%", code: "Doe" },
-    { label: "AMD 6600XT 249€", code: "Doe" },
+    { label: "Verkkotuotteet -40%", code: "DOE" },
+    { label: "1Tb SSD 49€", code: "DOE" },
+    { label: "Intel tuotteet -22%", code: "DOE" },
+    { label: "AMD 6600XT 249€", code: "DOE" },
     { label: "Bluetooth-kaiutin - 15%", code: "SPEAKER!%" },
     { label: "Gaming näppäimistö - 25%", code: "KEYBOARD25" },
     { label: "Älypuhelin 199€", code: "SMARTPHONE199" },
@@ -43,7 +43,7 @@ const openDoor = (event, doorDay) => {
     }
 
     // Check if we are in development mode
-    const isDevMode = true; // Set this to false for the final version
+    const isDevMode = false; // Set this to false for the final version
 
     // Alert the user if trying to open before December or before the specific door day
     if (!isDevMode) {
@@ -60,15 +60,22 @@ const openDoor = (event, doorDay) => {
     // Open the door and show the discount code
     event.target.classList.add("opened"); // Mark the door as opened
     const discountCode = document.createElement("div");
-    discountCode.innerText = getDiscountCode(doorDay); // Get the discount code for this door
+    
+    // Format to show both label and code
+    const discountInfo = getDiscountInfo(doorDay);
+    discountCode.innerText = discountInfo; // Set the inner text to the formatted string
     discountCode.classList.add("discount-code");
     event.target.appendChild(discountCode); // Add the discount code to the door
     discountCode.style.display = "block"; // Show the discount code
 };
 
-// Function to retrieve discount code based on door number
-const getDiscountCode = (doorNumber) => {
-    return discountCodes[doorNumber - 1]?.code || "No code available";
+// Function to retrieve discount information based on door number
+const getDiscountInfo = (doorNumber) => {
+    const discount = discountCodes[doorNumber - 1];
+    if (discount) {
+        return `${discount.label}: ${discount.code}`;
+    }
+    return "No code available";
 };
 
 // Function to create the calendar doors
