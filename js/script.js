@@ -67,7 +67,7 @@ const createCalendar = () => {
         doorNumber.innerHTML = i + 1;
         calendarDoor.appendChild(doorNumber);
         
-        let coursePath = `https://annikagronqvist.free.nf/Uppg3/img/bild-1.jpg`; // Ensure this is a secure URL
+        let coursePath = `https://annikagronqvist.free.nf/Uppg3/img/bild-1.jpg`;
         calendarDoor.addEventListener("click", openDoor.bind(null, coursePath, null, i + 1));
     }
 };
