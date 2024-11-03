@@ -9,11 +9,11 @@ const loadDiscountCodes = async () => {
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
         discountCodes = data.christmasSpecials; // Store the codes from the JSON file
-        console.log("Discount codes loaded:", discountCodes); // Log loaded discount codes
+        console.log("Discount codes loaded:", discountCodes);
         createCalendar(); // Create the calendar after loading discount codes
     } catch (error) {
-        console.error("Error loading discount codes:", error); // Log any errors
-        createCalendar(); // Create the calendar even if loading fails
+        console.error("Error loading discount codes:", error);
+        createCalendar(); // Create calendar without discount codes on error
     }
 };
 
@@ -28,14 +28,19 @@ const openDoor = (path, event, doorDay) => {
         return; // Prevent opening again if already opened
     }
 
+    // Check if we are in development mode
+    const isDevMode = false; // Set this to false for the final version
+
     // Alert the user if trying to open before December or before the specific door day
-    if (monthnow !== 11) {
-        alert("This feature opens in December."); 
-        return; 
-    }
-    if (daynow < doorDay) {
-        alert(`This door cannot be opened until December ${doorDay}.`);
-        return;
+    if (!isDevMode) {
+        if (monthnow !== 11) {
+            alert("This feature opens in December."); 
+            return; 
+        }
+        if (daynow < doorDay) {
+            alert(`This door cannot be opened until December ${doorDay}.`);
+            return;
+        }
     }
     
     // Open the door and show the image
@@ -59,7 +64,7 @@ const createCalendar = () => {
     for (let i = 0; i < calendarDays; i++) {
         const calendarDoor = document.createElement("div");
         calendarDoor.classList.add("door");
-        calendarDoor.style.gridArea = "door" + (i + 1);
+        calendarDoor.style.gridArea = `door${i + 1}`; // Ensure this corresponds to your grid
         calendarContainer.appendChild(calendarDoor);
         
         const doorNumber = document.createElement("div");
@@ -71,5 +76,6 @@ const createCalendar = () => {
         calendarDoor.addEventListener("click", openDoor.bind(null, coursePath, null, i + 1));
     }
 };
+
 // Initialize calendar on page load and load discount codes
 window.onload = loadDiscountCodes;
