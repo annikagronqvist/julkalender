@@ -1,52 +1,46 @@
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 body {
-    background-color: #f3060617;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    background-color: #f3060617; /* Background color */
 }
 
 .container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    grid-template-rows: repeat(6, 1fr);   /* 6 rows */
-    gap: 10px; /* Space between the doors */
     width: 800px;
     height: 900px;
     border: 5px solid black;
-    background-image: url("https://img.freepik.com/free-psd/christmas-tree-illustration_23-2150894975.jpg");
+    margin: 15px auto;
+    background-image: url("https://img.freepik.com/free-psd/christmas-tree-illustration_23-2150894975.jpg?t=st=1726857383~exp=1726860983~hmac=853460c3f4a57005ba9d2d597d374fe04f76edac8d1330b5bef553ee6f4477f8&w=826");
     background-size: cover;
-    padding: 20px;
     box-shadow: 6px 6px 20px gray;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-areas: 
+        "door1 door2 door3 door4"
+        "door5 door6 door7 door8"
+        "door9 door10 door11 door12"
+        "door13 door14 door15 door16"
+        "door17 door18 door19 door20"
+        "door21 door22 door23 door24";
 }
 
 .door {
-    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
-    border: 2px solid #000000;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white for visibility */
+    border: 2px solid black;
+    position: relative; /* Position relative for discount code positioning */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.3s;
+    font-size: 2em;
+    color: rgb(116, 111, 111);
 }
 
-.door:hover {
-    transform: scale(1.05);
-}
-
-.opened {
-    background-color: rgba(248, 229, 209, 0.9); /* Lighter color for opened doors */
-    color: #333;
-    cursor: default; /* Change cursor when door is opened */
+.text {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
 }
 
 .discount-code {
