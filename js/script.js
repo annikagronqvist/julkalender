@@ -27,7 +27,7 @@ const openDoor = (path, event, doorDay) => {
     }
 
     // Check if we are in development mode
-    const isDevMode = true; // Set this to true for testing, false for the final version
+    const isDevMode = false; // Set this to false for the final version
 
     // Alert the user if trying to open before December or before the specific door day
     if (!isDevMode) {
@@ -72,7 +72,7 @@ const createCalendar = () => {
         calendarDoor.appendChild(doorNumber);
         
         let coursePath = `http://annikagronqvist.free.nf/Uppg3/img/bild-1.jpg`;
-        calendarDoor.addEventListener("click", openDoor.bind(null, coursePath, null, i + 1));
+        calendarDoor.addEventListener("click", (event) => openDoor(coursePath, event, i + 1)); // Bind the event
     }
 };
 
