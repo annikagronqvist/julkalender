@@ -27,7 +27,7 @@ const openDoor = (path, event, doorDay) => {
     }
 
     // Check if we are in development mode
-    const isDevMode = false; // Set this to false for the final version
+    const isDevMode = true; // Set this to true for testing, false for the final version
 
     // Alert the user if trying to open before December or before the specific door day
     if (!isDevMode) {
@@ -49,6 +49,7 @@ const openDoor = (path, event, doorDay) => {
     const discountCode = document.createElement("div");
     discountCode.innerText = getDiscountCode(doorDay); // Get the discount code for this door
     discountCode.classList.add("discount-code");
+    discountCode.style.display = "block"; // Make the discount code visible
     event.target.appendChild(discountCode); // Add the discount code to the door
 };
 
