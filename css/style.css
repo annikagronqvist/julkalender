@@ -1,11 +1,5 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #f3060617; /* Background color */
-}
-
+css
+Kopioi koodi
 .container {
     width: 800px;
     height: 900px;
@@ -13,7 +7,6 @@ body {
     margin: 15px auto;
     background-image: url("https://img.freepik.com/free-psd/christmas-tree-illustration_23-2150894975.jpg?t=st=1726857383~exp=1726860983~hmac=853460c3f4a57005ba9d2d597d374fe04f76edac8d1330b5bef553ee6f4477f8&w=826");
     background-size: cover;
-    box-shadow: 6px 6px 20px gray;
     display: grid;
     grid-template-columns: repeat(4, 25%);
     grid-template-rows: repeat(6, 1fr);
@@ -27,30 +20,15 @@ body {
 }
 
 .door {
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white for visibility */
-    border: 2px solid black;
-    position: relative; /* Position relative for discount code positioning */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    color: rgb(116, 111, 111);
-}
-
-.text {
-    height: 100%;
-    width: 100%;
-    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5); /* Slightly visible doors */
+    border: 2px solid black; /* Visible borders */
+    position: relative; /* For positioning the discount code */
 }
 
 .discount-code {
-    position: absolute; /* Positioning on the door */
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
-    padding: 5px; /* Padding around the code */
-    border-radius: 5px; /* Rounded corners */
-    bottom: 10px; /* Positioning near the bottom */
-    left: 50%; /* Centering horizontally */
-    transform: translateX(-50%); /* Adjust for centering */
-    color: #000; /* Text color */
+    position: absolute;
+    bottom: 5px; /* Adjust position */
+    left: 5px; /* Adjust position */
+    color: red; /* Color for discount code */
     font-weight: bold; /* Bold text */
 }
