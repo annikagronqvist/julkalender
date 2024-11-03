@@ -67,11 +67,9 @@ const createCalendar = () => {
         doorNumber.innerHTML = i + 1;
         calendarDoor.appendChild(doorNumber);
         
-        // Use a valid HTTPS image URL for the door image
-        let coursePath = `https://example.com/path/to/your/image.jpg`; // Change to a valid URL
+        let coursePath = `https://example.com/path/to/your/image.jpg`; // Make sure this URL is valid
         calendarDoor.addEventListener("click", openDoor.bind(null, coursePath, null, i + 1));
     }
 };
-
 // Initialize calendar on page load and load discount codes
 window.onload = loadDiscountCodes;
