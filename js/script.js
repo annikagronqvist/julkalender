@@ -51,7 +51,7 @@ const openDoor = (event, doorDay) => {
     }
 
     // Check if we are in development mode
-    const isDevMode = false; // Set this to false for the final version
+    const isDevMode = true; // Set this to false for the final version
 
     // Alert the user if trying to open before December or before the specific door day
     if (!isDevMode) {
