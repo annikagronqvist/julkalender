@@ -82,9 +82,11 @@ const createCalendar = () => {
 // Function to shuffle the doors in the DOM
 const shuffleDoors = () => {
     const doors = Array.from(calendarContainer.children);
+    // Fisher-Yates shuffle
     for (let i = doors.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        calendarContainer.appendChild(doors[j]); // Move the door to the end of the container
+        // Swap the doors
+        calendarContainer.appendChild(doors[j]); // Move the shuffled door to the end
     }
 };
 
