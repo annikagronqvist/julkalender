@@ -28,7 +28,7 @@ body {
 }
 
 .door {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
     border: 2px solid #000000;
     display: flex;
     justify-content: center;
@@ -44,7 +44,7 @@ body {
 }
 
 .opened {
-    background-color: #f8e5d1;
+    background-color: rgba(248, 229, 209, 0.9); /* Lighter color for opened doors */
     color: #333;
     cursor: default; /* Change cursor when door is opened */
 }
