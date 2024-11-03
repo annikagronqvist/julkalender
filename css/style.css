@@ -15,8 +15,8 @@ body {
     background-size: cover;
     box-shadow: 6px 6px 20px gray;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    grid-template-rows: repeat(6, 1fr); /* 6 rows */
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
     grid-gap: 5px; /* Optional: space between doors */
 }
 
