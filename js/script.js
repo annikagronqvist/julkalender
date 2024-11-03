@@ -22,8 +22,6 @@ const discountCodes = [
     { label: "Kamerat -25%", code: "CAMERA25" },
     { label: "Matkapuhelimet -10%", code: "PHONE10" },
     { label: "Tarvikkeet -40%", code: "ACCESSORIES40" },
-    { label: "Pelit -30%", code: "GAMES30" },
-    { label: "Älytelevisiot -15%", code: "SMARTTV15" },
     { label: "Älykellot -20%", code: "SMARTWATCH20" },
     { label: "Käytetyt laitteet -15%", code: "USED15" },
     { label: "Pehmeät lelulelut -50%", code: "SOFTTOY50" },
