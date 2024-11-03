@@ -1,3 +1,21 @@
+const calendarContainer = document.querySelector(".container");
+const calendarDays = 24;
+
+// Array of discount codes
+const discountCodes = [
+    { label: "Läppärit -20%", code: "ASDJKL9023" },
+    { label: "Ilmainen toimitus", code: "VNKJDO0987" },
+    { label: "Muistikortit ja muistitukut puoleen hintaan", code: "IOSDFJ872" },
+    { label: "Geforce näytönohjaimet -30%", code: "KLHJ8976" },
+    { label: "Samsung 55'' televisio 399€", code: "SDFJKL9080" },
+    { label: "Robottipölynimuri 129€", code: "PQWO23894" },
+    { label: "Verkkotuotteet -40%", code: "Doe" },
+    { label: "1Tb SSD 49€", code: "Doe" },
+    { label: "Intel tuotteet -22%", code: "Doe" },
+    { label: "AMD 6600XT 249€", code: "Doe" }
+];
+
+// Function to open a door
 const openDoor = (path, event, doorDay) => {
     let today = new Date();
     let daynow = today.getDate();
@@ -9,7 +27,7 @@ const openDoor = (path, event, doorDay) => {
     }
 
     // Check if we are in development mode
-    const isDevMode = true; // Set this to false when you're ready for final submission
+    const isDevMode = true; // Set this to false for the final version
 
     if (!isDevMode) {
         if (monthnow !== 11) {
@@ -35,19 +53,6 @@ const openDoor = (path, event, doorDay) => {
 
 // Function to retrieve discount code based on door number
 const getDiscountCode = (doorNumber) => {
-    const discountCodes = [
-        { label: "Läppärit -20%", code: "ASDJKL9023" },
-        { label: "Ilmainen toimitus", code: "VNKJDO0987" },
-        { label: "Muistikortit ja muistitikut puoleen hintaan", code: "IOSDFJ872" },
-        { label: "Geforce näytönohjaimet -30%", code: "KLHJ8976" },
-        { label: "Samsung 55'' televisio 399€", code: "SDFJKL9080" },
-        { label: "Robottipölynimuri 129€", code: "PQWO23894" },
-        { label: "Verkkotuotteet -40%", code: "Doe" },
-        { label: "1Tb SSD 49€", code: "Doe" },
-        { label: "Intel tuotteet -22%", code: "Doe" },
-        { label: "AMD 6600XT 249€", code: "Doe" }
-    ];
-    // Adjust this logic as per your actual codes' arrangement
     return discountCodes[doorNumber - 1]?.code || "No code available";
 };
 
@@ -55,7 +60,7 @@ const getDiscountCode = (doorNumber) => {
 const createCalendar = () => {
     for (let i = 0; i < calendarDays; i++) {
         const calendarDoor = document.createElement("div");
-        calendarDoor.classList.add("door"); // Changed to "door" class
+        calendarDoor.classList.add("door");
         calendarDoor.style.gridArea = "door" + (i + 1);
         calendarContainer.appendChild(calendarDoor);
         
