@@ -1,28 +1,30 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     background-color: #f3060617;
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-template-rows: repeat(6, 1fr);   /* 6 rows */
+    gap: 10px; /* Space between the doors */
     width: 800px;
     height: 900px;
     border: 5px solid black;
     background-image: url("https://img.freepik.com/free-psd/christmas-tree-illustration_23-2150894975.jpg");
     background-size: cover;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    gap: 10px;
+    padding: 20px;
+    box-shadow: 6px 6px 20px gray;
 }
 
 .door {
@@ -31,6 +33,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 24px;
+    font-weight: bold;
     cursor: pointer;
     transition: transform 0.3s;
 }
@@ -39,22 +43,8 @@ body {
     transform: scale(1.05);
 }
 
-.text {
-    font-size: 24px;
-    font-weight: bold;
-}
-
 .opened {
     background-color: #f8e5d1;
     color: #333;
-}
-
-.discount-label {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.discount-code {
-    font-family: monospace;
-    color: #c00;
+    cursor: default; /* Change cursor when door is opened */
 }
