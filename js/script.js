@@ -9,10 +9,10 @@ const discountCodes = [
     { label: "Geforce näytönohjaimet -30%", code: "KLHJ8976" },
     { label: "Samsung 55'' televisio 399€", code: "SDFJKL9080" },
     { label: "Robottipölynimuri 129€", code: "PQWO23894" },
-    { label: "Verkkotuotteet -40%", code: "Doe" },
-    { label: "1Tb SSD 49€", code: "Doe" },
-    { label: "Intel tuotteet -22%", code: "Doe" },
-    { label: "AMD 6600XT 249€", code: "Doe" }
+    { label: "Verkkotuotteet -40%", code: "DOE" },
+    { label: "1Tb SSD 49€", code: "DOE" },
+    { label: "Intel tuotteet -22%", code: "DOE" },
+    { label: "AMD 6600XT 249€", code: "DOE" }
 ];
 
 // Function to open a door
@@ -43,16 +43,20 @@ const openDoor = (event, doorDay) => {
     
     // Open the door and show the discount code
     event.target.classList.add("opened"); // Mark the door as opened
+    
+    // Create a new div for the discount code
     const discountCode = document.createElement("div");
     discountCode.innerText = getDiscountCode(doorDay); // Get the discount code for this door
     discountCode.classList.add("discount-code");
     event.target.appendChild(discountCode); // Add the discount code to the door
+    
+    // Show the discount code
     discountCode.style.display = "block"; // Show the discount code
 };
 
 // Function to retrieve discount code based on door number
 const getDiscountCode = (doorNumber) => {
-    return discountCodes[doorNumber - 1]?.code || "No code available";
+    return discountCodes[doorNumber - 1]?.code || "No code available"; // Adjusted to match door number with index
 };
 
 // Function to create the calendar doors
@@ -64,9 +68,10 @@ const createCalendar = () => {
         
         const doorNumber = document.createElement("div");
         doorNumber.classList.add("text");
-        doorNumber.innerHTML = i + 1;
+        doorNumber.innerHTML = i + 1; // Set the door number text
         calendarDoor.appendChild(doorNumber);
         
+        // Add event listener for door click
         calendarDoor.addEventListener("click", (event) => openDoor(event, i + 1));
     }
 };
