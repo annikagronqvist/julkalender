@@ -76,7 +76,7 @@ const createCalendar = () => {
         calendarDoor.appendChild(doorNumber);
         
         // Change the image URL to HTTPS
-        let coursePath = `https://annikagronqvist.free.nf/Uppg3/img/bild-1.jpg`;
+       let coursePath = `https://annikagronqvist.free.nf/Uppg3/img/bild-1.jpg`;
         calendarDoor.addEventListener("click", openDoor.bind(null, coursePath, null, i + 1));
     }
 };
