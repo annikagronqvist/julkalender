@@ -1,3 +1,44 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f3060617;
+}
+
+.container {
+    width: 800px;
+    height: 900px;
+    border: 5px solid black;
+    margin: 15px auto;
+    background-image: url("https://img.freepik.com/free-psd/christmas-tree-illustration_23-2150894975.jpg");
+    background-size: cover;
+    box-shadow: 6px 6px 20px gray;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 10px;
+}
+
+.image {
+    background-color: white;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.image:hover {
+    transform: scale(1.05);
+}
+
+.text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
 .opened {
     background-color: #f8e5d1;
     color: #333;
