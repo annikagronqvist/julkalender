@@ -4,7 +4,7 @@ const calendarContainer = document.querySelector(".container");
 // Number of days in the calendar
 const calendarDays = 24;
 
-// Discount codes
+// Discount codes array
 const discountCodes = [
     { label: "Läppärit -20%", code: "ASDJKL9023" },
     { label: "Ilmainen toimitus", code: "VNKJDO0987" },
@@ -47,12 +47,12 @@ const createCalendar = () => {
         const calendarDoor = document.createElement("div");
         const calendarDoorText = document.createElement("div");
 
-        calendarDoor.classList.add("image");
-        calendarDoor.style.gridArea = "door" + (i + 1);
+        calendarDoor.classList.add("door"); // Updated class name to 'door'
+        calendarDoor.style.gridArea = "door" + (i + 1); // Make sure the grid styling works
         calendarContainer.appendChild(calendarDoor);
 
         calendarDoorText.classList.add("text");
-        calendarDoorText.innerHTML = i + 1;
+        calendarDoorText.innerHTML = i + 1; // Display day number on the door
         calendarDoor.appendChild(calendarDoorText);
 
         // Get a discount code (cycling through if there are not enough)
