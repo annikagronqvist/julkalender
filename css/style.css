@@ -48,3 +48,15 @@ body {
     color: #333;
     cursor: default; /* Change cursor when door is opened */
 }
+
+.discount-code {
+    position: absolute; /* Positioning on the door */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    padding: 5px; /* Padding around the code */
+    border-radius: 5px; /* Rounded corners */
+    bottom: 10px; /* Positioning near the bottom */
+    left: 50%; /* Centering horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    color: #000; /* Text color */
+    font-weight: bold; /* Bold text */
+}
