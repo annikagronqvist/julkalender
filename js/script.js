@@ -67,7 +67,8 @@ const createCalendar = () => {
         doorNumber.innerHTML = i + 1;
         calendarDoor.appendChild(doorNumber);
         
-        let coursePath = `https://annikagronqvist.free.nf/Uppg3/img/bild-1.jpg`;
+        // Use a valid HTTPS image URL for the door image
+        let coursePath = `https://example.com/path/to/your/image.jpg`; // Change to a valid URL
         calendarDoor.addEventListener("click", openDoor.bind(null, coursePath, null, i + 1));
     }
 };
