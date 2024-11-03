@@ -80,12 +80,11 @@ const openDoor = (event, doorDay) => {
 
 // Function to retrieve discount info based on door number
 const getDiscountCode = (doorNumber) => {
-    // Return the label and code if available
     const discount = discountCodes[doorNumber - 1];
     if (discount) {
-        return `${discount.label} - Code: ${discount.code}`; // Format the output
+        return `${discount.label} - Code: ${discount.code}`; // Format the output consistently
     }
-    return "No code available"; // For doors beyond available codes
+    return "No code available";
 };
 
 // Function to create the calendar doors
