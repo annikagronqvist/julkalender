@@ -1,6 +1,3 @@
-const calendarContainer = document.querySelector(".container");
-const calendarDays = 24;
-
 // Array of discount codes with labels
 const discountCodes = [
     { label: "Läppärit -20%", code: "ASDJKL9023" },
@@ -66,7 +63,7 @@ const getDiscountCode = (doorNumber) => {
     // Return the label and code if available
     const discount = discountCodes[doorNumber - 1];
     if (discount) {
-        return `${discount.label}: ${discount.code}`; // Format the output
+        return `${discount.label} - Code: ${discount.code}`; // Format the output
     }
     return "No code available"; // For doors beyond available codes
 };
